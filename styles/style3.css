@@ -23,6 +23,17 @@ body {
     margin: 0.3rem;
     position: relative;
 }
+.createListDiv {
+    padding: 1rem;
+    border: grey 1px solid;
+    background-color: rgb(235, 236, 240);
+    border-radius: 1%;
+    height: 2rem;
+    width: 15rem;
+    float: left;
+    margin: 0.3rem;
+    position: relative;
+}
 .itemsDiv {
     max-height: 100%;
     min-height: 50%;

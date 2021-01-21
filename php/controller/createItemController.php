@@ -1,11 +1,7 @@
-<head>
-<link rel="stylesheet" href="../../styles/style2.css">
-</head>
-<?
+<? function showCreateItem() {
 if ($_GET["id"] == null) {
-    header("Location: ../../");
+    header("Location: index.php?page=index");
 } 
-require '../model/connection.php';
 if ($_POST["name"] == null) {
 
 } else {
@@ -14,19 +10,9 @@ if ($_POST["name"] == null) {
     } else {
         createItem($_GET["id"], $_POST["name"], $_POST["description"], "true");
     }
-    header("Location: ../../");
+    header("Location: index.php?page=index");
     
 }
-?>
-<div class="createDiv">
-<form action="" method="post">
-    <input type="text" name="name"><br><br>
-    <textarea name="description" rows="4" cols="50" maxlength="200"></textarea> <br>
-    
 
-    <input type="checkbox" id="completed" name="completed" value="true">
-    <label for="completed"> completed</label><br>
-
-    <input type="submit" value="Create">
-</form>
-</div>
+require 'php/view/createItem.php';
+} ?>

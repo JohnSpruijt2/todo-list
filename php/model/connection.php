@@ -143,4 +143,23 @@ function createItem($listId, $name, $description, $completed) {
         echo "Connection failed: " . $e->getMessage();
     }
 }
+
+function createList($name) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("INSERT INTO `list`(`name`) VALUES (:listName)");
+        $stmt->bindParam(":listName", $name);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+}
 ?>

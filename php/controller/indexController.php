@@ -1,5 +1,4 @@
 <?php 
-require 'php/model/connection.php';
 
 function showIndex() {
     $listData = getLists();

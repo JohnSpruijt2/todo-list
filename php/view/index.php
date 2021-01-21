@@ -11,10 +11,15 @@
                     <a><?= $items['name'] ?></a>
                 </div>
         <?php } ?>
+        
             </div>
             <div class="createBtn">
-            <button onclick="location.href='php/controller/createItemController.php?id=<?= $data['id']; ?>'"><i class="fas fa-plus"></i> <a>Create new task</a></button>
+            <button onclick="location.href='?page=CreateItem&id=<?= $data['id']; ?>'"><i class="fas fa-plus"></i> <a>Create new task</a></button>
             </div>
         </div>
         <?php } ?>
+
+        <div class="createListDiv">
+        <button onclick="location.href='?page=CreateList'"><i class="fas fa-plus"></i> <a>Create new List</a></button>
+        </div>
 </section>
