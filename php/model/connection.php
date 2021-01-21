@@ -45,6 +45,33 @@ function getLists() {
     return $result;
 }
 
+function getListById($listId) {
+    $conn = connectDb();
+        try {
+
+            // Zet de query klaar door midel van de prepare method. Voeg hierbij een
+         
+            $stmt = $conn->prepare("SELECT * FROM list where `id`=:listId");
+            $stmt->bindParam(":listId", $listId);
+    
+            // Voer de query uit
+            $stmt->execute();
+    
+            // Haal alle resultaten op en maak deze op in een array
+            // In dit geval weten we zeker dat we maar 1 medewerker op halen (de where clause), 
+            //daarom gebruiken we hier de fetch functie.
+            $result = $stmt->fetch();
+        
+    
+        }
+        catch(PDOException $e){
+    
+            echo "Connection failed: " . $e->getMessage();
+        }
+        $conn = null;
+    return $result;
+}
+
 function getItemsFromList($listId) {
     $conn = connectDb();
     try {
@@ -120,6 +147,7 @@ function quickComplete($id, $compl) {
         // Zet de foutmelding op het scherm
         echo "Connection failed: " . $e->getMessage();
     }
+    $conn = null;
 }
 
 function createItem($listId, $name, $description, $completed) {
@@ -142,6 +170,7 @@ function createItem($listId, $name, $description, $completed) {
         // Zet de foutmelding op het scherm
         echo "Connection failed: " . $e->getMessage();
     }
+    $conn = null;
 }
 
 function createList($name) {
@@ -161,5 +190,28 @@ function createList($name) {
         // Zet de foutmelding op het scherm
         echo "Connection failed: " . $e->getMessage();
     }
+    $conn = null;
 }
+
+function editList($listId, $name) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("UPDATE `list` SET `name`=:listName WHERE `id`=:listId");
+        $stmt->bindParam(":listName", $name);
+        $stmt->bindParam(":listId", $listId);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
 ?>

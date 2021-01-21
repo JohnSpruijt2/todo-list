@@ -28,5 +28,4 @@ function showCreateList() {
     showIndex();
     require 'php/view/createList.php';
     } 
-
 ?>
