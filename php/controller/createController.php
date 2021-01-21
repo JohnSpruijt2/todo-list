@@ -13,6 +13,20 @@ if ($_POST["name"] == null) {
     header("Location: index.php?page=index");
     
 }
-
+showIndex();
 require 'php/view/createItem.php';
-} ?>
+} 
+
+function showCreateList() {
+    if ($_POST["name"] == null) {
+    
+    } else {
+        createList($_POST["name"]);
+        header("Location: index.php?page=index");
+        
+    }
+    showIndex();
+    require 'php/view/createList.php';
+    } 
+
+?>

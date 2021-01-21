@@ -1,6 +1,6 @@
 <?php require 'php/controller/indexController.php';
-require 'php/controller/createItemController.php';
-require 'php/controller/createListController.php';
+require 'php/controller/createController.php';
+require 'php/controller/editcontroller/php';
 require 'php/model/connection.php';
 if ($_GET['page'] == null) {
     header("Location: ?page=index");

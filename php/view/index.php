@@ -3,7 +3,7 @@
             foreach ($listData as $data) {
                 $itemsData = getItemsFromList($data['id']);
         ?>
-        <div class="list"><h1><?= $data['name']?></h1>
+        <div class="list"><h1><?= $data['name']?> <a class="editBtn" href="?page=EditList&id=<?= $data['id']; ?>"><i class="far fa-edit"></i></a></h1>
             <div class="itemsDiv">
         <?php foreach ($itemsData as $items) { ?>
                 <div class="item">
