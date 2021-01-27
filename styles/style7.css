@@ -15,18 +15,23 @@ body {
     position: absolute;
     background-color: rgba(128, 128, 128, 0.5);
 }
+button {
+    cursor: pointer;
+}
 #listSection {
     box-sizing: border-box;
     padding: 2rem;
-    width: 100%;
-    overflow: auto;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space:nowrap
 }
 .list {
     padding: 1rem;
     border: grey 1px solid;
     background-color: rgb(235, 236, 240);
     border-radius: 1%;
-    min-height: 20rem;
+    min-height: 0;
     width: 15rem;
     float: left;
     margin: 0.3rem;
@@ -44,8 +49,8 @@ body {
     position: relative;
 }
 .itemsDiv {
-    max-height: 30rem;
-    min-height: 50%;
+    max-height: 70vh;
+    min-height: 0;
     width: 100%;
     margin-bottom: 2rem;
     overflow: auto;
@@ -77,4 +82,44 @@ body {
 .itemName {
     color: black;
     text-decoration: none;
+}
+.detailDiv {
+    background-color: rgb(201, 201, 201);
+    margin: 5rem auto;
+    width: 75%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.notAboveAndBelow {
+    display:inline-block;
+    height: 70vh;
+}
+#exit {
+    border-radius: 90px;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    background-color: rgb(209, 209, 209);
+    text-align: center;
+    text-decoration: none;
+}
+#exit:hover {
+    background-color:  rgb(194, 194, 194);
+}
+#confirm {
+    border-radius: 2%;
+    padding: 0.1rem;
+    cursor: pointer;
+}
+#createBtn {
+    cursor: pointer;
+    border: none;
+    background-color: rgb(209, 209, 209);
+    text-align: center;
+    text-decoration: none;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+#createBtn:hover {
+    background-color:  rgb(194, 194, 194);
 }

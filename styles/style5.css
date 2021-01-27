@@ -18,8 +18,10 @@ body {
 #listSection {
     box-sizing: border-box;
     padding: 2rem;
-    width: 100%;
-    overflow: auto;
+    height: 100vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space:nowrap
 }
 .list {
     padding: 1rem;
@@ -44,8 +46,8 @@ body {
     position: relative;
 }
 .itemsDiv {
-    max-height: 30rem;
-    min-height: 50%;
+    max-height: 70vh;
+    min-height: 30vh;
     width: 100%;
     margin-bottom: 2rem;
     overflow: auto;
@@ -77,4 +79,18 @@ body {
 .itemName {
     color: black;
     text-decoration: none;
+}
+.detailDiv {
+    background-color: rgb(201, 201, 201);
+    margin: 5rem auto;
+    width: 75%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.notAboveAndBelow {
+    display:inline-block;
+    height: 70vh;
+}
+#exit {
+    border-radius: 90px;
 }

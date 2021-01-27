@@ -100,7 +100,7 @@ function getItemsFromList($listId) {
 return $result;
 }
 
-function getItemsFromId($itemId) {
+function getItemFromId($itemId) {
     $conn = connectDb();
     try {
 
@@ -201,6 +201,89 @@ function editList($listId, $name) {
         $stmt = $conn->prepare("UPDATE `list` SET `name`=:listName WHERE `id`=:listId");
         $stmt->bindParam(":listName", $name);
         $stmt->bindParam(":listId", $listId);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
+function editItem($itemId, $name, $description, $completed) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("UPDATE `items` SET `name`=:itemName,`description`=:descript,`completed`=:completed WHERE `id`=:id");
+        $stmt->bindParam(":id", $itemId);
+        $stmt->bindParam(":itemName", $name);
+        $stmt->bindParam(":descript", $description);
+        $stmt->bindParam(":completed", $completed);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
+function removeItem($itemId) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("DELETE FROM `items` WHERE `id`=:id");
+        $stmt->bindParam(":id", $itemId);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
+function removeList($listId) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("DELETE FROM `list` WHERE `id`=:id");
+        $stmt->bindParam(":id", $listId);
+
+        // Voer de query uit
+        $stmt->execute();
+    
+    }
+    // Vang de foutmelding af
+    catch(PDOException $e){
+        // Zet de foutmelding op het scherm
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
+function removeItemsWithListId($listId) {
+    $conn = connectDb();
+    try {
+    
+        // Zet de query klaar door middel van de prepare method
+        $stmt = $conn->prepare("DELETE FROM `items` WHERE `listid`=:id");
+        $stmt->bindParam(":id", $listId);
 
         // Voer de query uit
         $stmt->execute();
