@@ -150,16 +150,17 @@ function quickComplete($id, $compl) {
     $conn = null;
 }
 
-function createItem($listId, $name, $description, $completed) {
+function createItem($listId, $name, $description, $completed, $duration) {
     $conn = connectDb();
     try {
     
         // Zet de query klaar door middel van de prepare method
-        $stmt = $conn->prepare("INSERT INTO `items`(`name`, `description`, `completed`, `listid`) VALUES (:itemName,:descript,:completed,:listId)");
+        $stmt = $conn->prepare("INSERT INTO `items`(`name`, `description`, `completed`, `listid`, `duration`) VALUES (:itemName,:descript,:completed,:listId, :duration)");
         $stmt->bindParam(":itemName", $name);
         $stmt->bindParam(":descript", $description);
         $stmt->bindParam(":completed", $completed);
         $stmt->bindParam(":listId", $listId);
+        $stmt->bindParam(":duration", $duration);
 
         // Voer de query uit
         $stmt->execute();

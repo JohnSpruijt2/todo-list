@@ -9,7 +9,9 @@
         <?php foreach ($itemsData as $items) { ?>
                 <div  class="item">
                     <a class="check" href="php/controller/quickcomplete.php?id=<?= $items['id']; ?>"><i class="far fa<?php if ($items['completed'] == 'true') { echo '-check'; } ?>-square"></i></a>
-                    <a class="itemName" href="?page=detail&id=<?= $items['id']; ?>"><?= $items['name']; ?></a>
+                    <a class="itemName" href="?page=detail&id=<?= $items['id']; ?>"><?= $items['name']; ?></a> 
+                    <br> <br>
+                    <a class="durationTxt"><?= $items['duration'];?> min</a>
                 </div>
         <?php } ?>
         

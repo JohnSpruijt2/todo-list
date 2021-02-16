@@ -5,9 +5,11 @@
             <h1>edit item</h1>
             <input type="text" name="name" value="<?= $item['name']; ?>"><br><br>
             <textarea name="description" rows="4" cols="50" maxlength="200"><?= $item['description'] ?></textarea> <br>
+
+            <input type="number" name="duration" id="duration" value="<?= $item['duration'];?>"> <a>min</a> <br>
     
 
-            <input type="checkbox" id="completed" name="completed" value="true" <?php if ($item['completed'] == true) {echo "checked";} ?>>
+            <input type="checkbox" id="completed" name="completed" value="true" <?php if ($item['completed'] == "true") {echo "checked";} ?>>
             <label for="completed"> completed</label><br>
             
 

@@ -8,6 +8,8 @@
             <label for="name">description:</label><br>
             <textarea name="description" rows="4" cols="50" maxlength="200"></textarea> <br>
     
+            <label for="name">Duration in minutes:</label><br>
+            <input type="text" name="duration"><br><br>
 
             <input type="checkbox" id="completed" name="completed" value="true">
             <label for="completed"> completed</label><br>
