@@ -215,16 +215,17 @@ function editList($listId, $name) {
     $conn = null;
 }
 
-function editItem($itemId, $name, $description, $completed) {
+function editItem($itemId, $name, $description, $completed, $duration) {
     $conn = connectDb();
     try {
     
         // Zet de query klaar door middel van de prepare method
-        $stmt = $conn->prepare("UPDATE `items` SET `name`=:itemName,`description`=:descript,`completed`=:completed WHERE `id`=:id");
+        $stmt = $conn->prepare("UPDATE `items` SET `name`=:itemName,`description`=:descript,`completed`=:completed, `duration`=:duration WHERE `id`=:id");
         $stmt->bindParam(":id", $itemId);
         $stmt->bindParam(":itemName", $name);
         $stmt->bindParam(":descript", $description);
         $stmt->bindParam(":completed", $completed);
+        $stmt->bindParam(":duration", $duration);
 
         // Voer de query uit
         $stmt->execute();

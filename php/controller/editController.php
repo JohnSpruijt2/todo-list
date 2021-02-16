@@ -25,8 +25,8 @@ function showEditItem() {
     if ($_POST["name"] == null) {
     
     } else {
-        if ($_POST['name'] != $list['name'] || $_POST['description'] != $item['description'] || $_POST['completed'] != $item['completed']) {
-            editItem($_GET['id'], $_POST['name'], $_POST['description'], $_POST['completed']);
+        if ($_POST['name'] != $list['name'] || $_POST['description'] != $item['description'] || $_POST['completed'] != $item['completed'] || $_POST['duration'] != $item['duration']) {
+            editItem($_GET['id'], $_POST['name'], $_POST['description'], $_POST['completed'], $_POST['duration']);
         }
         header("Location: ?page=index");
     }
