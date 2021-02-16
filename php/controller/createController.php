@@ -18,12 +18,9 @@ require 'php/view/createItem.php';
 } 
 
 function showCreateList() {
-    if ($_POST["name"] == null) {
-    
-    } else {
+    if ($_POST["name"] != null) {
         createList($_POST["name"]);
         header("Location: index.php?page=index");
-        
     }
     showIndex();
     require 'php/view/createList.php';
