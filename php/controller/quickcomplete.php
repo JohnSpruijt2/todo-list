@@ -2,12 +2,11 @@
 
 require '../model/connection.php';
 $result = getItemFromId($_GET["id"]);
-if ($result["completed"] == "true") {
-    $trueOrFalse = 'false';
-} elseif ($result["completed"] == "false") {
-    $trueOrFalse = 'true';
+if ($result["completed"] == 1) {
+    $trueOrFalse = 0;
+} elseif ($result["completed"] == 0) {
+    $trueOrFalse = 1;
 }
 quickComplete($_GET["id"], $trueOrFalse);
-header("Location: ../../");
 
 ?>

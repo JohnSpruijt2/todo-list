@@ -4,10 +4,14 @@ if ($_GET["id"] == null) {
 } 
 if ($_POST["name"] != null) {
     if ($_POST["completed"] == null) {
-        createItem($_GET["id"], $_POST["name"], $_POST["description"], "false", $_POST["duration"]);
+        $complete = 0;
     } else {
-        createItem($_GET["id"], $_POST["name"], $_POST["description"], "true", $_POST["duration"]);
+        $complete = 1;
     }
+    if ($_POST["duration"] == null) {
+        $_POST["duration"] = 0;
+    }
+    createItem($_GET["id"], $_POST["name"], $_POST["description"], $complete, $_POST["duration"]);
     header("Location: index.php?page=index");
 }
 showIndex();

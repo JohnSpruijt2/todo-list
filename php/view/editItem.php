@@ -9,7 +9,7 @@
             <input type="number" name="duration" id="duration" value="<?= $item['duration'];?>"> <a>min</a> <br>
     
 
-            <input type="checkbox" id="completed" name="completed" value="true" <?php if ($item['completed'] == "true") {echo "checked";} ?>>
+            <input type="checkbox" id="completed" name="completed" value="true" <?php if ($item['completed'] == 1) {echo "checked";} ?>>
             <label for="completed"> completed</label><br>
             
 

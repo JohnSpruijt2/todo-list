@@ -26,7 +26,11 @@ function showEditItem() {
     
     } else {
         if ($_POST['name'] != $list['name'] || $_POST['description'] != $item['description'] || $_POST['completed'] != $item['completed'] || $_POST['duration'] != $item['duration']) {
-            editItem($_GET['id'], $_POST['name'], $_POST['description'], $_POST['completed'], $_POST['duration']);
+            if ($_POST['completed'] == null) {
+                editItem($_GET['id'], $_POST['name'], $_POST['description'], "0", $_POST['duration']);
+            } else {
+                editItem($_GET['id'], $_POST['name'], $_POST['description'], "1", $_POST['duration']);
+            }
         }
         header("Location: ?page=index");
     }

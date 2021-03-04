@@ -129,6 +129,7 @@ return $result;
 }
 
 function quickComplete($id, $compl) {
+    var_dump($compl);
     $conn = connectDb();
     try {
     
