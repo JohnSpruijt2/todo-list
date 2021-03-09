@@ -1,9 +1,12 @@
+<span id="sortSpan">
+<a> sort by: </a><a class="sortBtn" href="?page=index&sort=status">status</a> <a class="sortBtn" href="?page=index&sort=duration">duration</a> <a class="sortBtn" href="?page=index">reset</a>
+</span>
 <section id="listSection">
         <?php  
             foreach ($listData as $data) {
                 $itemsData = getItemsController($data['id'])
         ?>
-        <a href="?page=index&sort=status">sort</a>
+        
         <div class="notAboveAndBelow">
         <div class="list"><h1><a class="check" href="?page=EditList&id=<?= $data['id']; ?>"><?= $data['name']?></a></h1>
             <div class="itemsDiv">

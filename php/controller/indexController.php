@@ -7,8 +7,13 @@ function showIndex() {
 
 function getItemsController($id) {
     if ($_GET["sort"] == "status") {
-        $itemsData = getItemsFromListSortByStatus($data['id']);
+        $itemsData = getItemsFromListSortByStatus($id);
+    } elseif ($_GET["sort"] == "duration") {
+        $itemsData = getItemsFromListSortByDuration($id);
+    } else {
+        $itemsData = getItemsFromList($id);
     }
+    return $itemsData;
 }
 
 ?>

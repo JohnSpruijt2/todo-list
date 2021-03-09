@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 27, 2021 at 06:10 PM
+-- Generation Time: Mar 09, 2021 at 01:32 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.11
 
@@ -32,21 +32,22 @@ CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `name` varchar(155) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
-  `completed` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `listid` int(11) NOT NULL
+  `completed` int(11) NOT NULL,
+  `listid` int(11) NOT NULL,
+  `duration` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `description`, `completed`, `listid`) VALUES
-(2, 'second item', 'blablablablabla', 'true', 1),
-(6, 'test', '', 'true', 1),
-(7, 'bob', '', 'true', 1),
-(8, 'lop', '', 'false', 1),
-(9, 'kees', '', 'false', 1),
-(10, 'kaas', '', 'true', 1);
+INSERT INTO `items` (`id`, `name`, `description`, `completed`, `listid`, `duration`) VALUES
+(33, 'test', '', 1, 1, 80),
+(34, 'test', '', 0, 1, 20),
+(35, 'test', '', 0, 8, 0),
+(36, 'bob', '', 0, 1, 90),
+(37, 'kees', '', 1, 1, 0),
+(38, 'six', '', 0, 1, 60);
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,8 @@ CREATE TABLE `list` (
 --
 
 INSERT INTO `list` (`id`, `name`) VALUES
-(1, 'List from database');
+(1, 'List from database'),
+(8, 'huiswerk');
 
 --
 -- Indexes for dumped tables
@@ -90,13 +92,13 @@ ALTER TABLE `list`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `list`
 --
 ALTER TABLE `list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

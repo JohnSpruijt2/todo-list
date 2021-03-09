@@ -100,6 +100,62 @@ function getItemsFromList($listId) {
 return $result;
 }
 
+function getItemsFromListSortByStatus($listId) {
+    $conn = connectDb();
+    try {
+
+        // Zet de query klaar door midel van de prepare method. Voeg hierbij een
+     
+        $stmt = $conn->prepare("SELECT * FROM items where `listid`=:listId ORDER BY completed DESC");
+        $stmt->bindParam(":listId", $listId);
+    
+
+        // Voer de query uit
+        $stmt->execute();
+
+        // Haal alle resultaten op en maak deze op in een array
+        // In dit geval weten we zeker dat we maar 1 medewerker op halen (de where clause), 
+        //daarom gebruiken we hier de fetch functie.
+        $result = $stmt->fetchall();
+    
+
+    }
+    catch(PDOException $e){
+
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+return $result;
+}
+
+function getItemsFromListSortByDuration($listId) {
+    $conn = connectDb();
+    try {
+
+        // Zet de query klaar door midel van de prepare method. Voeg hierbij een
+     
+        $stmt = $conn->prepare("SELECT * FROM items where `listid`=:listId ORDER BY duration DESC");
+        $stmt->bindParam(":listId", $listId);
+    
+
+        // Voer de query uit
+        $stmt->execute();
+
+        // Haal alle resultaten op en maak deze op in een array
+        // In dit geval weten we zeker dat we maar 1 medewerker op halen (de where clause), 
+        //daarom gebruiken we hier de fetch functie.
+        $result = $stmt->fetchall();
+    
+
+    }
+    catch(PDOException $e){
+
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+return $result;
+}
+
 function getItemFromId($itemId) {
     $conn = connectDb();
     try {
